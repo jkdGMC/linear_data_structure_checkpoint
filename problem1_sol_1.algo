@@ -1,0 +1,35 @@
+ALGORITHM problem1_solution1
+VAR
+  set1,set2 : ARRAY_OF INTEGER[5];
+  sum,count : INTEGER := 0;
+  i,j,k,m : INTEGER;
+BEGIN
+  
+  FOR i FROM 0 TO set1.length-1 STEP 1 DO
+    Read(set1[i])
+  END FOR  
+  FOR j FROM 0 TO set2.length-1 STEP 1 DO  
+    Read(set2[i])  
+  END_FOR
+
+  FOR k FROM 0 TO set1.length-1 STEP 1  DO
+
+    FOR m FROM 0 TO set2.length-1 STEP 1 DO
+      IF (set1[k] = set2[m]) THEN
+        count := count;
+      ELSE
+        count := count + 1;
+      END_IF
+    END_FOR
+
+    IF (count > 1) THEN
+      sum := sum;
+    ELSE
+      sum := sum + set1[k];
+    END_IF
+    
+  END_FOR
+
+  Write(sum)
+  
+END

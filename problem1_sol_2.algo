@@ -1,0 +1,51 @@
+ALGORITHM problem1_solution2
+VAR
+  hset : HASH_TABLE<INTEGER,INTEGER>;
+  i,j,k,m,n,x : INTEGER;
+  set1,set2: ARRAY_OF INTEGER[5];
+  count,sum : INTEGER := 0;
+BEGIN
+
+  FOR i FROM 0 TO set1.length-1 STEP 1 DO
+    Read(set1[i])
+  END FOR  
+  FOR j FROM 0 TO set2.length-1 STEP 1 DO  
+    Read(set2[i])  
+  END_FOR
+
+  k := 0;
+  WHILE (k < set1.length) DO
+    hset.insert(k, set1[k]);
+    k := k+1;
+  END_WHILE
+
+  m := 0;
+  WHILE ((k < (set1.length + set2.length)) AND (m < set2.length) ) DO
+    hset.insert(k, set2[m]);
+    k := k+1;
+    m := m+1;
+  END_WHILE
+
+  FOR n FROM 0 TO (k - 1) STEP 1 DO
+
+    x := 0;
+    WHILE(x < (k - 1)) DO
+      IF(hset.get(n) = hset.get(x)) THEN
+        count := count + 1;
+      ELSE
+        count := count;
+      END_IF
+      x := x+1;
+    END_WHILE
+  
+    IF (count = 1) THEN
+      sum := sum + hset.get(n)
+    ELSE
+      sum := sum;
+    END_IF
+
+  END_FOR
+  
+  Write(sum)
+
+END
