@@ -16,13 +16,13 @@ BEGIN
     
     FOR m FROM 0 TO set2.length-1 STEP 1 DO
       IF (set1[k] = set2[m]) THEN
-        sum := sum + set1[k] + set2[m]
-      ELSE
-        sum := sum;
+        sum := sum + set1[k] + set2[m];
       END_IF
       
     END_FOR
 
   END_FOR
+
+  Write(sum)
 
 END
