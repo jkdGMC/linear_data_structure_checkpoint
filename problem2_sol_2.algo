@@ -28,18 +28,11 @@ BEGIN
     m := m+1;
   END_WHILE
 
-  FOR n FROM 0 TO (k - 1) STEP 1 DO
-  
-    x := 0;
-    WHILE(x < (k - 1)) DO
-      IF(hset.get(n) = hset.get(x)) THEN
-        sum := sum + set1[k] + set2[m]
-      ELSE
-        sum := sum;
+  FOR i FROM 0 TO (k - 1) STEP 1 DO
+    FOR j FROM 0 TO (k - 1) STEP1 DO
+      IF(hset.get(i) = hset.get(j)) THEN
+        sum := sum + 2*hset.get(i);
       END_IF
-      x := x+1;
-    END_WHILE
-
+    END_FOR
   END_FOR
-
 END
